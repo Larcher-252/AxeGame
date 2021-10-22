@@ -5,7 +5,16 @@ int main()
     int width = 350, height = 200;
     InitWindow(width, height, "Void's window");
 
-    float root_bear = 1.99f;
-    double cheese_burger {5.99};
-    bool shouldHaveLunch {};
+    // false
+    bool equal{ 4 == 9 };
+    // true
+    bool notEqual{ 4 != 9 };
+    // true
+    bool less{ 4 < 9 };
+    // false
+    bool greater{ 4 > 9 };
+    // true
+    bool lessEqual{ 4 <= 9 };
+    // false
+    bool greaterEqual{ 4 >= 9};
 }
