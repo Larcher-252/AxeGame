@@ -2,14 +2,26 @@
 
 int main()
 {
-    int width = 350, height = 200;
+    // window dimensions
+    int width{350}, height{200};
     InitWindow(width, height, "Void's window");
-
-        while (!WindowShouldClose())
+    // circle coordinates
+    int circle_x{width / 2}, circle_y{height / 2};
+    int const circle_radius{25}, movementStep{5};
+    SetTargetFPS(60);
+    while (!WindowShouldClose())
     {
         BeginDrawing();
-        ClearBackground(RED);
-        DrawCircle(width / 2, height / 2, 25, BLUE);
+        ClearBackground(WHITE);
+
+        // Game logic begins
+        DrawCircle(circle_x, circle_y, circle_radius, PINK);
+
+        if (IsKeyDown(KEY_D)) {circle_x += movementStep;}
+        if (IsKeyDown(KEY_A)) {circle_x -= movementStep;}
+        if (IsKeyDown(KEY_S)) {circle_y += movementStep;}
+        if (IsKeyDown(KEY_W)) {circle_y -= movementStep;}
+        // Game logic ends
         EndDrawing();
     }
 
