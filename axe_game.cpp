@@ -17,10 +17,10 @@ int main()
         // Game logic begins
         DrawCircle(circle_x, circle_y, circle_radius, PINK);
 
-        if (IsKeyDown(KEY_D)) {circle_x += movementStep;}
-        if (IsKeyDown(KEY_A)) {circle_x -= movementStep;}
-        if (IsKeyDown(KEY_S)) {circle_y += movementStep;}
-        if (IsKeyDown(KEY_W)) {circle_y -= movementStep;}
+        if (IsKeyDown(KEY_D) && (circle_x < (width - circle_radius))) {circle_x += movementStep;}
+        if (IsKeyDown(KEY_A) && (circle_x > circle_radius)) {circle_x -= movementStep;}
+        if (IsKeyDown(KEY_S) && (circle_y < (height - circle_radius))) {circle_y += movementStep;}
+        if (IsKeyDown(KEY_W) && (circle_y > circle_radius)) {circle_y -= movementStep;}
         // Game logic ends
         EndDrawing();
     }
