@@ -14,13 +14,20 @@ int main()
     // movement params
     int const movementStep{5};
     int cubeDirection{5};
+    // collision
+    bool collision_with_rectangle{true};
 
     SetTargetFPS(60);
     while (!WindowShouldClose())
     {
         BeginDrawing();
         ClearBackground(WHITE);
-
+        if (collision_with_rectangle)
+        {
+            DrawText("Game Over!", width/2, height/2, 20, RED);
+        }
+        else
+        {
         // Game logic begins
         // Circle
         DrawCircle(circle_x, circle_y, circle_radius, PINK);
@@ -33,6 +40,7 @@ int main()
         rectangle_y += cubeDirection;
         if ((rectangle_y >= (height - rectangle_h)) || (rectangle_y <= 0)) {cubeDirection = -cubeDirection;}
         // Game logic ends
+        }
         EndDrawing();
     }
 
