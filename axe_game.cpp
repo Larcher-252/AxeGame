@@ -31,7 +31,7 @@ int main()
         // Rectangle
         DrawRectangle(rectangle_x, rectangle_y, rectangle_w, rectangle_h, RED);
         rectangle_y += cubeDirection;
-        if ((rectangle_y > (height - rectangle_h)) || (rectangle_y < 0)) {cubeDirection = -cubeDirection;}
+        if ((rectangle_y >= (height - rectangle_h)) || (rectangle_y <= 0)) {cubeDirection = -cubeDirection;}
         // Game logic ends
         EndDrawing();
     }
