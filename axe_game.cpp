@@ -15,13 +15,32 @@ int main()
     int const movementStep{5};
     int cubeDirection{5};
     // collision
-    bool collision_with_rectangle{true};
+    bool collision_with_rectangle{false};
+    int u_rectangle_y{rectangle_y};
+    int d_rectangle_y{rectangle_y + rectangle_h};
+    int l_rectangle_x{rectangle_x};
+    int r_rectangle_x{rectangle_x + rectangle_w};
+    int u_circle_y{circle_y - circle_radius};
+    int d_circle_y{circle_y + circle_radius};
+    int l_circle_x{circle_x - circle_radius};
+    int r_circle_x{circle_x + circle_radius};
 
     SetTargetFPS(60);
     while (!WindowShouldClose())
     {
         BeginDrawing();
         ClearBackground(WHITE);
+        // Collision check
+        u_rectangle_y = rectangle_y;
+        d_rectangle_y = rectangle_y + rectangle_h;
+        l_rectangle_x = rectangle_x;
+        r_rectangle_x = rectangle_x + rectangle_w;
+        u_circle_y = circle_y - circle_radius;
+        d_circle_y = circle_y + circle_radius;
+        l_circle_x = circle_x - circle_radius;
+        r_circle_x = circle_x + circle_radius;
+        collision_with_rectangle = (d_rectangle_y >= u_circle_y) && (u_rectangle_y <= d_circle_y) && (l_rectangle_x <= r_circle_x) && (r_rectangle_x >= l_circle_x);
+        // Collision check ends
         if (collision_with_rectangle)
         {
             DrawText("Game Over!", width/2, height/2, 20, RED);
