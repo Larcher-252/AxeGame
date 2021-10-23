@@ -3,7 +3,7 @@
 int main()
 {
     // window dimensions
-    int width{800}, height{450};
+    int width{500}, height{300};
     InitWindow(width, height, "Void's window");
     // circle params
     int circle_x{width / 2}, circle_y{height / 2};
@@ -39,11 +39,15 @@ int main()
         d_circle_y = circle_y + circle_radius;
         l_circle_x = circle_x - circle_radius;
         r_circle_x = circle_x + circle_radius;
-        collision_with_rectangle = (d_rectangle_y >= u_circle_y) && (u_rectangle_y <= d_circle_y) && (l_rectangle_x <= r_circle_x) && (r_rectangle_x >= l_circle_x);
+        collision_with_rectangle = 
+                            (d_rectangle_y >= u_circle_y) && 
+                            (u_rectangle_y <= d_circle_y) && 
+                            (l_rectangle_x <= r_circle_x) && 
+                            (r_rectangle_x >= l_circle_x);
         // Collision check ends
         if (collision_with_rectangle)
         {
-            DrawText("Game Over!", width/2, height/2, 20, RED);
+            DrawText("Game Over!", width/2 - 60, height/2 - 20, 20, RED);
         }
         else
         {
@@ -62,17 +66,4 @@ int main()
         }
         EndDrawing();
     }
-
-    // false
-    bool equal{ 4 == 9 };
-    // true
-    bool notEqual{ 4 != 9 };
-    // true
-    bool less{ 4 < 9 };
-    // false
-    bool greater{ 4 > 9 };
-    // true
-    bool lessEqual{ 4 <= 9 };
-    // false
-    bool greaterEqual{ 4 >= 9};
 }
